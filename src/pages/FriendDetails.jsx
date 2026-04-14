@@ -119,7 +119,7 @@ export default function FriendDetails() {
 
             <div className="flex items-center justify-center gap-2 text-sm text-gray-400">
               <Mail className="h-4 w-4" />
-              <span>Preferred: {friend.email.split('@')[0]}</span>
+              <span>Preferred: {friend.email}</span>
             </div>
           </motion.div>
 

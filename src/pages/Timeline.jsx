@@ -5,16 +5,17 @@ import Text from "../assets/text.png";
 import Video from "../assets/video.png";
 import Handshake from "../assets/handshake.png";
 import { motion, AnimatePresence } from "framer-motion";
-import { Filter } from "lucide-react";
 
 export default function Timeline() {
   const { timeline } = useApp();
   const [filter, setFilter] = useState("All");
 
   const iconMap = {
+    "Call": Phone,
     "Phone": Phone,
     "Text": Text,
     "Video": Video,
+    "Meetup": Handshake,
     "Handshake": Handshake
   };
 
@@ -26,22 +27,19 @@ export default function Timeline() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <div className="mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h1 className="text-[40px] font-bold tracking-tight text-[#244D3F]">Timeline</h1>
+      <h1 className="text-[40px] font-bold tracking-tight text-[#244D3F] mb-6">Timeline</h1>
 
-        <div className="relative inline-block">
-          <div className="flex items-center gap-2 rounded-xl border border-[#F2F2F2] bg-white px-4 py-2 shadow-sm">
-            <Filter className="h-4 w-4 text-gray-400" />
-            <select
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="bg-transparent text-sm font-medium text-gray-600 outline-none cursor-pointer appearance-none pr-4"
-            >
-              {filterOptions.map(opt => (
-                <option key={opt} value={opt}>{opt === "All" ? "Filter timeline" : opt}</option>
-              ))}
-            </select>
-          </div>
+      <div className="relative inline-block ml-5 appearance-none">
+        <div className="flex items-center gap-2 rounded-xl border border-[#F2F2F2] bg-white px-4 py-2 shadow-sm">
+          <select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="bg-transparent text-sm font-medium text-gray-600 outline-none cursor-pointer pr-4 pl-4 rounded-2xl"
+          >
+            {filterOptions.map(opt => (
+              <option key={opt} value={opt}>{opt === "All" ? "Filter timeline" : opt}</option>
+            ))}
+          </select>
         </div>
       </div>
 
@@ -49,7 +47,8 @@ export default function Timeline() {
         <AnimatePresence mode="popLayout">
           {filteredTimeline.length > 0 ? (
             filteredTimeline.map((entry, idx) => {
-              const iconSrc = iconMap[entry.icon] || Handshake;
+              const iconSrc = iconMap[entry.type] || iconMap[entry.icon] || Handshake;
+
               return (
                 <motion.div
                   key={entry.id}
@@ -60,10 +59,10 @@ export default function Timeline() {
                   className="flex items-center gap-4 rounded-[24px] border border-[#F2F2F2] bg-white p-4 transition-all hover:shadow-md"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#f0f4f3]">
-                    <img 
-                      src={iconSrc} 
-                      alt={entry.type} 
-                      className="h-5 w-5 object-contain" 
+                    <img
+                      src={iconSrc}
+                      alt={entry.type}
+                      className="h-5 w-5 object-contain"
                     />
                   </div>
                   <div className="flex-grow">

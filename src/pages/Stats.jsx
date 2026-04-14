@@ -15,11 +15,11 @@ export default function Stats() {
     value: counts[key]
   }));
 
-  const COLORS = ["#1a3a32", "#2d5a4c", "#4ade80", "#8b5cf6", "#f59e0b"];
+  const COLORS = ["#1a3a32", "#8b5cf6", "#4ade20", "#FF0000"];
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="mb-12 text-4xl font-extrabold tracking-tight text-[#1a3a32]">Friendship Analytics</h1>
+      <h1 className="mb-12 text-4xl font-bold tracking-tight text-black">Friendship Analytics</h1>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <motion.div 
@@ -55,15 +55,6 @@ export default function Stats() {
         </motion.div>
 
         <div className="space-y-4">
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
-            className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
-          >
-            <p className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-1">Total Interactions</p>
-            <p className="text-4xl font-bold text-[#1a3a32]">{timeline.length}</p>
-          </motion.div>
 
           <motion.div 
             initial={{ opacity: 0, x: 20 }}

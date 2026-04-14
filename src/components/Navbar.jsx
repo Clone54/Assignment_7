@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Home, Clock, BarChart3 } from "lucide-react";
 import { cn } from "../lib/utils";
+import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const navLinks = [
@@ -14,9 +15,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center">
           <NavLink to="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold tracking-tight text-[#1a3a32]">
-              Keen<span className="text-[#2d5a4c]">Keeper</span>
-            </span>
+            <img src={logo} alt="logo.png" />
           </NavLink>
         </div>
 
