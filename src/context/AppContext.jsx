@@ -8,7 +8,7 @@ export function AppProvider({ children }) {
     const saved = localStorage.getItem("keenkeeper_timeline");
     return saved ? JSON.parse(saved) : [
       { id: 1, type: "Meetup", friendName: "Tom Baker", date: "2026-03-29", icon: "Handshake" },
-      { id: 2, type: "Text", friendName: "Sarah Chen", date: "2026-03-28", icon: "MessageCircle" },
+      { id: 2, type: "Text", friendName: "Sarah Chen", date: "2026-03-28", icon: "Text" },
       { id: 3, type: "Meetup", friendName: "Olivia Martinez", date: "2026-03-26", icon: "Handshake" },
       { id: 4, type: "Video", friendName: "Aisha Patel", date: "2026-03-23", icon: "Video" },
       { id: 5, type: "Meetup", friendName: "Sarah Chen", date: "2026-03-21", icon: "Handshake" },
