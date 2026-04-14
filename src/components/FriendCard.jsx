@@ -3,54 +3,44 @@ import { cn } from "../lib/utils";
 
 export default function FriendCard({ friend }) {
   const statusColors = {
-    "overdue": "bg-red-100 text-red-700 border-red-200",
-    "almost due": "bg-orange-100 text-orange-700 border-orange-200",
-    "on-track": "bg-green-100 text-green-700 border-green-200",
+    "overdue": "bg-red-800 text-white border-red-200",
+    "almost due": "bg-orange-800 text-white border-orange-200",
+    "on-track": "bg-green-800 text-white border-green-200",
   };
 
   return (
-    <Link 
-      to={`/friend/${friend.id}`}
-      className="group bg-white rounded-2xl border border-gray-100 p-5 transition-all hover:shadow-xl hover:-translate-y-1"
-    >
-      <div className="flex flex-col items-center text-center">
-        <div className="relative mb-4">
-          <img 
-            src={friend.picture} 
-            alt={friend.name}
-            referrerPolicy="no-referrer"
-            className="h-24 w-24 rounded-full object-cover border-4 border-gray-50 group-hover:border-[#f0f4f3] transition-colors"
-          />
-          <div className={cn(
-            "absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-white",
-            friend.status === "on-track" ? "bg-green-500" : 
-            friend.status === "almost due" ? "bg-orange-500" : "bg-red-500"
-          )} />
-        </div>
+    <Link
+  to={`/friend/${friend.id}`}
+  className="bg-white rounded-[32px] border border-[#F2F2F2] w-[260px] pt-8 pb-6 px-4 shadow-sm hover:shadow-xl transition-all flex flex-col items-center"
+>
+  <div className="relative mb-3">
+    <img
+      src={friend.picture}
+      className="h-20 w-20 rounded-full object-cover border-2 border-white shadow-sm"
+    />
+    <div className={cn(
+      "absolute bottom-0 right-1 h-4 w-4 rounded-full border-[3px] border-white",
+      friend.status === "on-track" ? "bg-green-500" : "bg-orange-500"
+    )} />
+  </div>
 
-        <h3 className="text-lg font-bold text-[#1a3a32] mb-1">{friend.name}</h3>
-        
-        <div className="flex flex-wrap justify-center gap-1.5 mb-4">
-          {friend.tags.map(tag => (
-            <span key={tag} className="px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-gray-50 text-gray-500 rounded-full border border-gray-100">
-              {tag}
-            </span>
-          ))}
-        </div>
+  <h3 className="text-[18px] font-bold text-[#244D3F] leading-tight">{friend.name}</h3>
+  <p className="text-[11px] text-gray-400 mb-3">{friend.days_since_contact}d ago</p>
 
-        <div className="w-full pt-4 border-t border-gray-50 flex justify-between items-center">
-          <div className="text-left">
-            <p className="text-[10px] text-gray-400 uppercase font-bold tracking-tight">Last Contact</p>
-            <p className="text-sm font-semibold text-gray-700">{friend.days_since_contact} days ago</p>
-          </div>
-          <span className={cn(
-            "px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide border",
-            statusColors[friend.status]
-          )}>
-            {friend.status}
-          </span>
-        </div>
-      </div>
-    </Link>
+  <div className="flex gap-1 mb-6">
+    {friend.tags.map(tag => (
+      <span key={tag} className="px-3 py-1 text-[10px] font-bold bg-[#CBFADB] text-[#244D3F] rounded-full uppercase">
+        {tag}
+      </span>
+    ))}
+  </div>
+
+  <div className={cn(
+    "px-6 py-1.5 rounded-full text-[12px] font-bold text-white uppercase tracking-wide",
+    friend.status === "overdue" ? "bg-[#E65C5C]" : "bg-[#FF9F43]" 
+  )}>
+    {friend.status}
+  </div>
+</Link>
   );
 }

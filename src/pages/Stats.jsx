@@ -5,7 +5,6 @@ import { motion } from "motion/react";
 export default function Stats() {
   const { timeline } = useApp();
 
-  // Calculate counts for each interaction type
   const counts = timeline.reduce((acc, entry) => {
     acc[entry.type] = (acc[entry.type] || 0) + 1;
     return acc;
@@ -23,7 +22,6 @@ export default function Stats() {
       <h1 className="mb-12 text-4xl font-extrabold tracking-tight text-[#1a3a32]">Friendship Analytics</h1>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        {/* Chart Card */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +54,6 @@ export default function Stats() {
           </div>
         </motion.div>
 
-        {/* Summary Stats */}
         <div className="space-y-4">
           <motion.div 
             initial={{ opacity: 0, x: 20 }}

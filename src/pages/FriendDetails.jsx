@@ -1,22 +1,21 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { 
-  Phone, 
-  MessageCircle, 
-  Video, 
-  Clock, 
-  Calendar, 
-  Target, 
-  Edit2, 
-  BellOff, 
-  Archive, 
+import {
+  Clock,
+  Calendar,
+  Target,
+  BellOff,
+  Archive,
   Trash2,
   ChevronLeft,
-  Mail
+  Mail,
 } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import { motion } from "motion/react";
 import toast from "react-hot-toast";
 import { cn } from "../lib/utils";
+import callImage from "../assets/PhoneCall.png"
+import textImage from "../assets/ChatDots.png"
+import videoImage from "../assets/VideoCamera.png"
 
 export default function FriendDetails() {
   const { id } = useParams();
@@ -37,7 +36,7 @@ export default function FriendDetails() {
     return (
       <div className="flex flex-col items-center justify-center py-20">
         <h2 className="text-2xl font-bold text-gray-800">Friend not found</h2>
-        <button 
+        <button
           onClick={() => navigate("/")}
           className="mt-4 text-[#1a3a32] hover:underline flex items-center gap-1"
         >
@@ -53,7 +52,7 @@ export default function FriendDetails() {
       "Text": "MessageCircle",
       "Video": "Video"
     };
-    
+
     addTimelineEntry({
       type,
       friendName: friend.name,
@@ -71,14 +70,14 @@ export default function FriendDetails() {
   };
 
   const statusColors = {
-    "overdue": "bg-red-100 text-red-700 border-red-200",
-    "almost due": "bg-orange-100 text-orange-700 border-orange-200",
-    "on-track": "bg-green-100 text-green-700 border-green-200",
+    "overdue": "bg-red-800 text-white",
+    "almost due": "bg-orange-800 text-white",
+    "on-track": "bg-green-800 text-white",
   };
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <button 
+      <button
         onClick={() => navigate("/")}
         className="mb-8 flex items-center gap-1 text-sm font-medium text-gray-500 hover:text-[#1a3a32] transition-colors"
       >
@@ -86,21 +85,20 @@ export default function FriendDetails() {
       </button>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-        {/* Left Column - Friend Info */}
         <div className="lg:col-span-4 space-y-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="rounded-3xl border border-gray-100 bg-white p-8 text-center shadow-sm"
           >
-            <img 
-              src={friend.picture} 
+            <img
+              src={friend.picture}
               alt={friend.name}
               referrerPolicy="no-referrer"
               className="mx-auto mb-6 h-32 w-32 rounded-full object-cover border-4 border-[#f0f4f3]"
             />
             <h1 className="text-2xl font-bold text-[#1a3a32] mb-2">{friend.name}</h1>
-            
+
             <div className="flex flex-col items-center gap-2 mb-6">
               <span className={cn(
                 "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide border",
@@ -110,7 +108,7 @@ export default function FriendDetails() {
               </span>
               <div className="flex flex-wrap justify-center gap-1.5">
                 {friend.tags.map(tag => (
-                  <span key={tag} className="px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-[#f0f4f3] text-[#2d5a4c] rounded-full">
+                  <span key={tag} className="px-2 py-0.5 text-[12px] font-semibold uppercase tracking-wider bg-[#CBFADB] text-[#244D3F] rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -118,7 +116,7 @@ export default function FriendDetails() {
             </div>
 
             <p className="text-gray-500 italic mb-6">"{friend.bio}"</p>
-            
+
             <div className="flex items-center justify-center gap-2 text-sm text-gray-400">
               <Mail className="h-4 w-4" />
               <span>Preferred: {friend.email.split('@')[0]}</span>
@@ -138,16 +136,14 @@ export default function FriendDetails() {
           </div>
         </div>
 
-        {/* Right Column - Stats & Actions */}
         <div className="lg:col-span-8 space-y-6">
-          {/* Stats Grid */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
               { label: "Days Since Contact", value: friend.days_since_contact, icon: Clock },
               { label: "Goal (Days)", value: friend.goal, icon: Target },
               { label: "Next Due", value: friend.next_due_date, icon: Calendar },
             ].map((stat, idx) => (
-              <motion.div 
+              <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -160,8 +156,7 @@ export default function FriendDetails() {
             ))}
           </div>
 
-          {/* Relationship Goal */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -183,8 +178,7 @@ export default function FriendDetails() {
             </div>
           </motion.div>
 
-          {/* Quick Check-In */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -193,21 +187,28 @@ export default function FriendDetails() {
             <h3 className="text-lg font-bold text-[#1a3a32] mb-6">Quick Check-In</h3>
             <div className="grid grid-cols-3 gap-4">
               {[
-                { label: "Call", icon: Phone },
-                { label: "Text", icon: MessageCircle },
-                { label: "Video", icon: Video },
-              ].map((action) => (
-                <button
-                  key={action.label}
-                  onClick={() => handleCheckIn(action.label)}
-                  className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-100 bg-gray-50/50 py-6 transition-all hover:bg-[#f0f4f3] hover:border-[#2d5a4c]/20"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1a3a32] shadow-sm transition-transform group-hover:scale-110">
-                    <action.icon className="h-6 w-6" />
-                  </div>
-                  <span className="text-sm font-bold text-gray-600 group-hover:text-[#1a3a32]">{action.label}</span>
-                </button>
-              ))}
+                { label: "Call", icon: callImage },
+                { label: "Text", icon: textImage },
+                { label: "Video", icon: videoImage },
+              ].map((action) => {
+                const Icon = action.icon;
+                return (
+                  <button
+                    key={action.label}
+                    onClick={() => handleCheckIn(action.label)}
+                    className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-100 bg-gray-50/50 py-6 transition-all hover:bg-[#f0f4f3] hover:border-[#2d5a4c]/20"
+                  >
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1a3a32] shadow-sm transition-transform group-hover:scale-110">
+                      <img
+                        src={action.icon}
+                        alt={action.label}
+                        className="h-6 w-6 object-contain"
+                      />
+                    </div>
+                    <span className="text-sm font-bold text-gray-600 group-hover:text-[#1a3a32]">{action.label}</span>
+                  </button>
+                )
+              })}
             </div>
           </motion.div>
         </div>

@@ -8,9 +8,9 @@ export default function Home() {
 
   const summaryCards = [
     { title: "Total Friends", value: friends.length, icon: Users, color: "text-blue-600", bg: "bg-blue-50" },
-    { title: "Overdue", value: friends.filter(f => f.status === "overdue").length, icon: Clock, color: "text-red-600", bg: "bg-red-50" },
-    { title: "Almost Due", value: friends.filter(f => f.status === "almost due").length, icon: Calendar, color: "text-orange-600", bg: "bg-orange-50" },
-    { title: "On Track", value: friends.filter(f => f.status === "on-track").length, icon: CheckCircle2, color: "text-green-600", bg: "bg-green-50" },
+    { title: "Need Attention", value: friends.filter(f => f.bar === "attention").length, icon: Clock, color: "text-red-600", bg: "bg-red-50" },
+    { title: "Interaction This Month", value: friends.filter(f => f.bar === "interaction").length, icon: Calendar, color: "text-orange-600", bg: "bg-orange-50" },
+    { title: "On Track", value: friends.filter(f => f.bar === "on-track").length, icon: CheckCircle2, color: "text-green-600", bg: "bg-green-50" },
   ];
 
   if (loading) {
@@ -23,35 +23,34 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      {/* Banner */}
       <div className="mb-16 text-center">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-4 text-4xl font-extrabold tracking-tight text-[#1a3a32] sm:text-5xl"
+          className="mb-4 text-4xl font-bold tracking-tight text-black sm:text-5xl"
         >
-          Nurture Your Connections
+          Friends to Keep Close in Your Life
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="mx-auto mb-8 max-w-2xl text-lg text-gray-500"
         >
-          Keep track of your relationships and never lose touch with the people who matter most.
+          Your personal shelf of meaningful connections. Browse, tend, and nurture the
+          relationships that matter most.
         </motion.p>
-        <motion.button 
+        <motion.button
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 rounded-full bg-[#1a3a32] px-6 py-3 font-semibold text-white transition-transform hover:scale-105 active:scale-95"
+          className="inline-flex items-center gap-2 rounded-full bg-green-800 px-6 py-3 font-semibold text-white transition-transform hover:scale-105 cursor-pointer active:scale-95"
         >
           <UserPlus className="h-5 w-5" />
           Add a Friend
         </motion.button>
       </div>
 
-      {/* Summary Cards */}
       <div className="mb-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {summaryCards.map((card, index) => (
           <motion.div
@@ -72,13 +71,12 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Friends Grid */}
       <div>
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-[#1a3a32]">Your Friends</h2>
+          <h2 className="text-2xl font-semibold text-black">Your Friends</h2>
           <span className="text-sm text-gray-500">{friends.length} total</span>
         </div>
-        
+
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {friends.map((friend, index) => (
             <motion.div
@@ -96,7 +94,6 @@ export default function Home() {
   );
 }
 
-// Helper for conditional classes since I can't import it easily in every file if I don't export it correctly
 function cn(...inputs) {
   return inputs.filter(Boolean).join(" ");
 }

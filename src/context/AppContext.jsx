@@ -20,7 +20,6 @@ export function AppProvider({ children }) {
   useEffect(() => {
     const fetchFriends = async () => {
       try {
-        // Simulate loading
         await new Promise(resolve => setTimeout(resolve, 1000));
         const response = await fetch("/friends.json");
         const data = await response.json();
@@ -57,8 +56,5 @@ export function AppProvider({ children }) {
 
 export function useApp() {
   const context = useContext(AppContext);
-  if (!context) {
-    throw new Error("useApp must be used within an AppProvider");
-  }
   return context;
 }

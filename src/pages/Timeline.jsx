@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useApp } from "../context/AppContext";
-import { Phone, MessageCircle, Video, Handshake, Filter } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
-import { cn } from "../lib/utils";
+import Phone from "../assets/call.png";
+import Text from "../assets/text.png";
+import Video from "../assets/video.png";
+import Handshake from "../assets/handshake.png";
+import { motion, AnimatePresence } from "framer-motion";
+import { Filter } from "lucide-react";
 
 export default function Timeline() {
   const { timeline } = useApp();
@@ -10,29 +13,29 @@ export default function Timeline() {
 
   const iconMap = {
     "Phone": Phone,
-    "MessageCircle": MessageCircle,
+    "Text": Text,
     "Video": Video,
     "Handshake": Handshake
   };
 
-  const filteredTimeline = filter === "All" 
-    ? timeline 
+  const filteredTimeline = filter === "All"
+    ? timeline
     : timeline.filter(entry => entry.type === filter);
 
   const filterOptions = ["All", "Call", "Text", "Video", "Meetup"];
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl px-4 py-12">
       <div className="mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h1 className="text-4xl font-extrabold tracking-tight text-[#1a3a32]">Timeline</h1>
-        
+        <h1 className="text-[40px] font-bold tracking-tight text-[#244D3F]">Timeline</h1>
+
         <div className="relative inline-block">
-          <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 shadow-sm">
+          <div className="flex items-center gap-2 rounded-xl border border-[#F2F2F2] bg-white px-4 py-2 shadow-sm">
             <Filter className="h-4 w-4 text-gray-400" />
-            <select 
+            <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              className="bg-transparent text-sm font-medium text-gray-600 outline-none cursor-pointer"
+              className="bg-transparent text-sm font-medium text-gray-600 outline-none cursor-pointer appearance-none pr-4"
             >
               {filterOptions.map(opt => (
                 <option key={opt} value={opt}>{opt === "All" ? "Filter timeline" : opt}</option>
@@ -42,32 +45,36 @@ export default function Timeline() {
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         <AnimatePresence mode="popLayout">
           {filteredTimeline.length > 0 ? (
             filteredTimeline.map((entry, idx) => {
-              const Icon = iconMap[entry.icon] || MessageCircle;
+              const iconSrc = iconMap[entry.icon] || Handshake;
               return (
                 <motion.div
                   key={entry.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ delay: idx * 0.03 }}
+                  className="flex items-center gap-4 rounded-[24px] border border-[#F2F2F2] bg-white p-4 transition-all hover:shadow-md"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f0f4f3] text-[#1a3a32]">
-                    <Icon className="h-6 w-6" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#f0f4f3]">
+                    <img 
+                      src={iconSrc} 
+                      alt={entry.type} 
+                      className="h-5 w-5 object-contain" 
+                    />
                   </div>
                   <div className="flex-grow">
-                    <h3 className="font-bold text-[#1a3a32]">
-                      {entry.type} <span className="font-normal text-gray-400">with</span> {entry.friendName}
+                    <h3 className="text-[16px] font-bold text-[#244D3F]">
+                      {entry.type} <span className="font-normal text-gray-700">with {entry.friendName}</span>
                     </h3>
-                    <p className="text-sm text-gray-400">
-                      {new Date(entry.date).toLocaleDateString('en-US', { 
-                        month: 'long', 
-                        day: 'numeric', 
-                        year: 'numeric' 
+                    <p className="text-[13px] text-gray-400">
+                      {new Date(entry.date).toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
                       })}
                     </p>
                   </div>
