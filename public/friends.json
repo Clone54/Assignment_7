@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Emma Wilson",
+    "picture": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    "email": "emma.w@example.com",
+    "days_since_contact": 62,
+    "status": "overdue",
+    "tags": ["College", "Family"],
+    "bio": "Former colleague, great mentor. Met in university. Love hiking together.",
+    "goal": 30,
+    "next_due_date": "2026-02-27"
+  },
+  {
+    "id": 2,
+    "name": "Sarah Chen",
+    "picture": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    "email": "sarah.c@example.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["Work", "Tech"],
+    "bio": "Brilliant software engineer. We often discuss system design and coffee.",
+    "goal": 14,
+    "next_due_date": "2026-04-23"
+  },
+  {
+    "id": 3,
+    "name": "Marcus Johnson",
+    "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    "email": "marcus.j@example.com",
+    "days_since_contact": 12,
+    "status": "almost due",
+    "tags": ["Gym", "Childhood"],
+    "bio": "Childhood best friend. We hit the gym together every weekend.",
+    "goal": 14,
+    "next_due_date": "2026-04-16"
+  },
+  {
+    "id": 4,
+    "name": "Aisha Patel",
+    "picture": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+    "email": "aisha.p@example.com",
+    "days_since_contact": 28,
+    "status": "overdue",
+    "tags": ["Art", "Travel"],
+    "bio": "Met during a solo trip to Italy. Amazing painter and travel buddy.",
+    "goal": 21,
+    "next_due_date": "2026-04-07"
+  },
+  {
+    "id": 5,
+    "name": "Tom Baker",
+    "picture": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    "email": "tom.b@example.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["Music", "Neighbor"],
+    "bio": "Plays guitar in a local band. Always has the best vinyl recommendations.",
+    "goal": 7,
+    "next_due_date": "2026-04-18"
+  },
+  {
+    "id": 6,
+    "name": "Olivia Martinez",
+    "picture": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+    "email": "olivia.m@example.com",
+    "days_since_contact": 18,
+    "status": "almost due",
+    "tags": ["Cooking", "College"],
+    "bio": "Foodie friend. We share recipes and try new restaurants monthly.",
+    "goal": 21,
+    "next_due_date": "2026-04-17"
+  },
+  {
+    "id": 7,
+    "name": "Ryan O'Brien",
+    "picture": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "email": "ryan.o@example.com",
+    "days_since_contact": 45,
+    "status": "overdue",
+    "tags": ["Photography"],
+    "bio": "Professional photographer. Taught me everything I know about lighting.",
+    "goal": 30,
+    "next_due_date": "2026-03-29"
+  },
+  {
+    "id": 8,
+    "name": "Lisa Nakamura",
+    "picture": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+    "email": "lisa.n@example.com",
+    "days_since_contact": 2,
+    "status": "on-track",
+    "tags": ["Yoga", "Work"],
+    "bio": "Yoga instructor and former coworker. Very calm and inspiring person.",
+    "goal": 14,
+    "next_due_date": "2026-04-26"
+  }
+]
