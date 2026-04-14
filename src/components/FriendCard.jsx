@@ -37,7 +37,8 @@ export default function FriendCard({ friend }) {
 
       <div className={cn(
         "px-6 py-1.5 rounded-full text-[12px] font-bold text-white uppercase tracking-wide",
-        friend.status === "overdue" ? "bg-[#E65C5C]" : "bg-[#FF9F43]"
+        friend.status === "on-track" ? "bg-green-800" :
+          friend.status === "overdue" ? "bg-red-800" : "bg-orange-500"
       )}>
         {friend.status}
       </div>
