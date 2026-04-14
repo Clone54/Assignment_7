@@ -10,7 +10,8 @@
     "tags": ["Yoga"],
     "bio": "Yoga class friend.",
     "goal": 14,
-    "next_due_date": "2026-04-24"
+    "next_due_date": "2026-04-24",
+    "phone": "+8801871528249"
   },
   {
     "id": 19,
@@ -23,7 +24,8 @@
     "tags": ["Sports"],
     "bio": "Football buddy.",
     "goal": 21,
-    "next_due_date": "2026-04-16"
+    "next_due_date": "2026-04-16",
+    "phone": "+8801786935814"
   },
   {
     "id": 20,
@@ -36,7 +38,8 @@
     "tags": ["Art"],
     "bio": "Art gallery companion.",
     "goal": 30,
-    "next_due_date": "2026-04-02"
+    "next_due_date": "2026-04-02",
+    "phone": "+8801775894590"
   },
   {
     "id": 9,
@@ -49,7 +52,8 @@
     "tags": ["Startup", "Tech"],
     "bio": "Entrepreneur friend. We brainstorm startup ideas together.",
     "goal": 21,
-    "next_due_date": "2026-04-20"
+    "next_due_date": "2026-04-20",
+    "phone": "+8801898591524"
   },
   {
     "id": 10,
@@ -62,7 +66,8 @@
     "tags": ["Dance", "College"],
     "bio": "Dance club friend from university days.",
     "goal": 30,
-    "next_due_date": "2026-04-01"
+    "next_due_date": "2026-04-01",
+    "phone": "+8801773668751"
   },
   {
     "id": 11,
@@ -75,7 +80,8 @@
     "tags": ["Gaming"],
     "bio": "Online gaming buddy. Plays FPS and strategy games.",
     "goal": 14,
-    "next_due_date": "2026-04-22"
+    "next_due_date": "2026-04-22",
+    "phone": "+8801315500879"
   },
   {
     "id": 12,
@@ -88,7 +94,8 @@
     "tags": ["Fitness", "Gym"],
     "bio": "Gym partner who motivates me to stay consistent.",
     "goal": 14,
-    "next_due_date": "2026-04-18"
+    "next_due_date": "2026-04-18",
+    "phone": "+8801707991523"
   },
   {
     "id": 13,
@@ -101,7 +108,8 @@
     "tags": ["Music"],
     "bio": "Bandmate and music enthusiast.",
     "goal": 30,
-    "next_due_date": "2026-03-30"
+    "next_due_date": "2026-03-30",
+    "phone": "+8801851792256"
   },
   {
     "id": 14,
@@ -114,26 +122,28 @@
     "tags": ["Travel"],
     "bio": "Met during a Europe trip. Loves exploring cities.",
     "goal": 14,
-    "next_due_date": "2026-04-19"
+    "next_due_date": "2026-04-19",
+    "phone": "+8801522101654"
   },
   {
     "id": 15,
-    "name": "Liam Davis",
-    "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    "email": "liam.d@example.com",
+    "name": "Urmi Mondal",
+    "picture": "https://scontent-sin6-3.xx.fbcdn.net/v/t39.30808-6/644194256_122296767740234959_1516724404906099776_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeH9zVAS6YEvJmq-Xhg1HHO0KWh1lNjlG1QpaHWU2OUbVAt5CobMEjROm_RArHMc07BcSoBmkhtpZEQFWqdfRe7P&_nc_ohc=_qCPbWTbNd4Q7kNvwE6sgIM&_nc_oc=Adr8EbsUBug9sjGsnjO3UecIfI9u-GszqvhIxjPNll40WidVyz9H7TzoZIzECtbapnrwoyyX-c9bJOz0H_RcEL6X&_nc_zt=23&_nc_ht=scontent-sin6-3.xx&_nc_gid=3OFI22n8PBTgGRAEtAFAYA&_nc_ss=7a3a8&oh=00_Af1ZOjra72h5T-EQR2KyF4bytZ1AM26kXZS_tS8eQsbGiQ&oe=69E45D29",
+    "email": "urmi.m@gmail.com",
     "days_since_contact": 4,
     "bar": "on-track",
     "status": "on-track",
     "tags": ["Work"],
     "bio": "Office teammate. We collaborate on projects.",
     "goal": 7,
-    "next_due_date": "2026-04-19"
+    "next_due_date": "2026-04-19",
+    "phone": "+8801778780620"
   },
   {
     "id": 16,
-    "name": "Ava Garcia",
-    "picture": "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=400&h=400&fit=crop",
-    "email": "ava.g@example.com",
+    "name": "Pinkey Rani",
+    "picture": "https://scontent-sin11-1.xx.fbcdn.net/v/t39.30808-6/480280047_643388044731330_459229299254336166_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHxe2SNEQjS4XLTlUQxm14Fqy5PB538g9yrLk8HnfyD3FtagkPw2i31pp3BYxg7Z9zE9jTgQOYnby2RJm0FD4Tb&_nc_ohc=6_-O-geL8loQ7kNvwEEoTnW&_nc_oc=AdrqGlAYXiP6C_qIsbavjv2nchS0SBufR4oqLi5VE4cY7Gx1n99oEVwChJUOO211cxoaWQkUBcbFWjpaxpgn7yUD&_nc_zt=23&_nc_ht=scontent-sin11-1.xx&_nc_gid=uXqS2_WjSzGH7TZvnpQqzw&_nc_ss=7a3a8&oh=00_Af3eBam7BgKBjXWvd44f8-1UeqFxmCu3D1eZI0b4L6zr5Q&oe=69E45487",
+    "email": "pinkey.rani@gmail.com",
     "days_since_contact": 22,
     "bar": "interaction",
     "status": "almost due",

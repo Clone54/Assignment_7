@@ -47,9 +47,16 @@ export default function FriendDetails() {
   }
 
   const handleCheckIn = (type) => {
+
+    if (type === "Call") {
+      if (friend.phone) {
+        window.location.href = `tel:${friend.phone}`;
+      }
+    }
+
     const iconMap = {
       "Call": "Phone",
-      "Text": "MessageCircle",
+      "Text": "Text",
       "Video": "Video"
     };
 
